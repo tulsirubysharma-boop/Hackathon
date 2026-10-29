@@ -34,7 +34,12 @@ For Nginx hosting, configure the site to pass PHP requests to PHP-FPM and point 
   2. In `C:\xampp\sendmail\sendmail.ini`, set `smtp_server=smtp.gmail.com`, `smtp_port=587`, `smtp_ssl=tls`, `auth_username=` and `force_sender=` to the sending Gmail address, and `auth_password=` to the Google App Password (enter the 16 characters without spaces).
   3. In `C:\xampp\php\php.ini`, set `sendmail_path = "\"C:\xampp\sendmail\sendmail.exe\" -t"` and restart Apache from the XAMPP Control Panel.
   4. Never paste the App Password into chat or put it in this repository. Keep it only in the local XAMPP config file.
-- **Video wellbeing demo:** camera preview and audio recording stay local. While recording, supported browser speech recognition writes recognized words into the editable text box; it continues across pauses. Transcription depends on the browser speech service and an internet connection. Only submitted text reaches the local scripted chat. There is no live clinician/video call, connected AI, or video analysis. Some familiar symptoms receive cautious general information; this is not diagnosis or treatment advice.
+- **Video wellbeing demo:** camera preview stays local. To transcribe a recording, the user must opt in to sending it to OpenAI; HealthSphere does not save the audio, and the transcription text appears in the editable box. Configure `HEALTHSPHERE_OPENAI_API_KEY` or create `C:\xampp\healthsphere-private\healthsphere-ai.php` outside the web root:
+  ```php
+  <?php
+  return ['openai_api_key' => 'YOUR_OPENAI_API_KEY'];
+  ```
+  OpenAI API usage may incur charges. Only text the user submits reaches the local scripted chat. There is no live clinician/video call, connected medical AI, or video analysis. Some familiar symptoms receive cautious general information; this is not diagnosis or treatment advice.
 - **History and account menu:** account options are under “My profile”; chat history is grouped by date and each date opens that day's saved conversation.
 
 ## Production and integration requirements

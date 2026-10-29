@@ -22,3 +22,20 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Local credentials and machine-specific settings
+.env
+.env.*
+!.env.example
+config/local.php
+config/*local*
+C:/xampp/healthsphere-private/
+
+# Local database exports and application data (keep schema and upgrade scripts)
+*.dump.sql
+*_dump.sql
+*-backup.sql
+*.sqlite
+*.sqlite3
+*.db
+*.log

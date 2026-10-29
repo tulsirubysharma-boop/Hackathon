@@ -64,6 +64,7 @@ if ((int) $audio['size'] < 1 || (int) $audio['size'] > $maximumAudioBytes) {
 $mimeType = (new finfo(FILEINFO_MIME_TYPE))->file((string) $audio['tmp_name']);
 $fileExtensions = [
     'audio/webm' => 'webm',
+    'video/webm' => 'webm',
     'audio/ogg' => 'ogg',
     'application/ogg' => 'ogg',
     'audio/mp4' => 'm4a',
@@ -73,8 +74,7 @@ $fileExtensions = [
     'audio/wav' => 'wav',
     'audio/x-wav' => 'wav',
     'audio/vnd.wave' => 'wav',
-    'audio/flac' => 'flac',
-    'audio/x-flac' => 'flac'
+    'audio/x-m4a' => 'm4a'
 ];
 if (!is_string($mimeType) || !isset($fileExtensions[$mimeType])) {
     hsTranscriptionResponse(415, ['success' => false, 'message' => 'This recording format is not supported. Record again using the browser audio controls.']);
